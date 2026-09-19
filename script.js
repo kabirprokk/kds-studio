@@ -79,6 +79,8 @@ function waLink(data){
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
 }
 waBtn.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Hello KDS Studio! I want to enquire about a shoot.')}`;
+const waBtn2 = document.getElementById('waBtn2');
+if(waBtn2) waBtn2.href = waBtn.href;
 form.onsubmit = e => {
   e.preventDefault();
   const data = new FormData(form);
