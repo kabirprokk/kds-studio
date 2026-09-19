@@ -124,6 +124,14 @@ footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;paddin
 #lbClose{top:20px;right:20px}#lbPrev{left:20px;top:50%}#lbNext{right:20px;top:50%}
 #lbCap{color:#fff;font-family:var(--serif);font-size:20px;margin-top:14px}
 
+/* PERFORMANCE: skip offscreen work, no layout shift */
+.card img,.about-img img,.hero-img img{content-visibility:auto}
+section{content-visibility:auto;contain-intrinsic-size:auto 800px}
+.hero{content-visibility:visible;contain-intrinsic-size:auto}
+/* VIDEO: never block load — use poster + click-to-play (see README) */
+video{max-width:100%;height:auto;background:#111}
+.video-card video{width:100%;border-radius:18px}
+
 @media(max-width:900px){
   .links{display:none}.menu-btn{display:block}
   .mobile-menu.open{display:flex;position:fixed;top:70px;left:12px;right:12px;z-index:50;background:#fff;border:1px solid var(--line);border-radius:18px;flex-direction:column;padding:10px}
